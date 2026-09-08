@@ -35,7 +35,7 @@ export function quote(items: LineItem[], discountPercent = 0): Quote {
   const subtotal = subtotalCents(items);
 
   let discount = 0;
-  if (discountPercent > 0 && items.length > 1) {
+  if (discountPercent > 0) {
     discount = applyPercent(subtotal, discountPercent);
   }
 

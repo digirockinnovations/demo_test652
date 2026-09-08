@@ -38,6 +38,13 @@ describe("quote", () => {
     expect(q.totalCents).toBe(159_800 - 15_980 + q.taxCents);
   });
 
+  it("discounts a single-item cart too", () => {
+    const q = quote([desk], 10);
+    expect(q.discountCents).toBe(8_990);
+    expect(q.taxCents).toBe(applyTax(89_900 - 8_990));
+    expect(q.totalCents).toBe(89_001);
+  });
+
   it("handles an empty cart", () => {
     expect(quote([], 10)).toEqual({
       subtotalCents: 0,
