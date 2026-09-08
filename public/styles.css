@@ -1,0 +1,39 @@
+:root {
+  --ink: #14171a;
+  --soft: #525e6c;
+  --line: rgb(20 23 26 / 0.1);
+  --bg: #f5f6f8;
+  --card: #fff;
+  --accent: #9b30ff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 40px 20px;
+}
+main { max-width: 640px; margin: 0 auto; }
+h1 { font-size: 28px; letter-spacing: -0.02em; margin-bottom: 4px; }
+.lede { color: var(--soft); margin-bottom: 28px; }
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 1px 2px rgb(20 23 26 / 0.04), 0 12px 32px -8px rgb(20 23 26 / 0.1);
+  margin-bottom: 18px;
+}
+.item { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.item:last-child { border-bottom: 0; }
+.item label { flex: 1; cursor: pointer; }
+.price { font-variant-numeric: tabular-nums; color: var(--soft); }
+.row { display: flex; justify-content: space-between; padding: 7px 0; font-variant-numeric: tabular-nums; }
+.row--total { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 12px; font-weight: 600; font-size: 18px; }
+.discount { color: var(--accent); }
+label.control { display: block; font-weight: 600; margin-bottom: 6px; }
+input[type="number"] {
+  width: 110px; padding: 8px 11px; font: inherit;
+  border: 0; border-radius: 999px; background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.hint { color: var(--soft); font-size: 13px; margin-top: 8px; }
