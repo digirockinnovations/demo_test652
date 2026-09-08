@@ -5,6 +5,7 @@
   --bg: #f5f6f8;
   --card: #fff;
   --accent: #9b30ff;
+  --warn: #a3540b;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -37,3 +38,4 @@ input[type="number"] {
   box-shadow: 0 0 0 1px var(--line);
 }
 .hint { color: var(--soft); font-size: 13px; margin-top: 8px; }
+.warning { color: var(--warn); font-size: 13px; margin-top: 10px; }

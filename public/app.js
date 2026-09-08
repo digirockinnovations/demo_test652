@@ -43,6 +43,13 @@ async function refresh() {
   document.getElementById("discountAmount").textContent = `-${money(q.discountCents)}`;
   document.getElementById("tax").textContent = money(q.taxCents);
   document.getElementById("total").textContent = money(q.totalCents);
+
+  const minimum = document.getElementById("minimum");
+  minimum.hidden = q.shortfallCents === 0;
+  if (q.shortfallCents > 0) {
+    minimum.textContent =
+      `Add ${money(q.shortfallCents)} more to reach the ${money(q.minimumOrderCents)} minimum`;
+  }
 }
 
 discountEl.addEventListener("input", refresh);

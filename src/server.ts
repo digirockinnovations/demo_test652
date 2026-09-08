@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
-import { quote, type LineItem } from "./cart";
+import { MINIMUM_ORDER_CENTS, quote, type LineItem } from "./cart";
 
 const root = join(fileURLToPath(new URL(".", import.meta.url)), "..", "public");
 const port = Number(process.env.PORT ?? 4173);
@@ -36,7 +36,11 @@ const server = createServer(async (req, res) => {
       .map((sku) => CATALOGUE.find((c) => c.sku === sku))
       .filter((i): i is LineItem => Boolean(i));
 
-    return json(res, 200, { items, ...quote(items, discount) });
+    return json(res, 200, {
+      items,
+      minimumOrderCents: MINIMUM_ORDER_CENTS,
+      ...quote(items, discount),
+    });
   }
 
   // Static files. normalize() resolves any "../" before we join, and dropping
